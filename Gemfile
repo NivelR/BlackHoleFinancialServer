@@ -23,6 +23,30 @@ gem 'redis', '~> 3.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+	#Personaliza los mensajes de error de Rails.
+  gem "better_errors"
+
+	#Muestra valores de variables de BetterErrors
+  gem "binding_of_caller"
+
+	#Use pry as your rails console
+	gem 'pry-rails'
+
+	#Adds 'step', 'next', 'finish', 'continue' and 'break' commands
+  gem 'pry-byebug'
+
+	#Walk the stack in a Pry session
+  gem 'pry-stack_explorer'
+
+	#Allows you to wrap code in Pry::rescue{ } to open a pry session
+  gem 'pry-rescue'
+
+	#pretty print Ruby objects to visualize their structure.
+  gem 'awesome_print'
+
+	#Hirb provides a mini view framework for console applications
+  gem 'hirb'
 end
 
 group :development do

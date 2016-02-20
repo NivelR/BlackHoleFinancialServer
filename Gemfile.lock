@@ -41,13 +41,24 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
+    awesome_print (1.6.1)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.2.2)
+    coderay (1.1.1)
     concurrent-ruby (1.0.0)
+    debug_inspector (0.0.2)
     erubis (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     i18n (0.7.0)
+    interception (0.5)
     json (1.8.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -60,6 +71,21 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
+      pry (~> 0.10)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
+    pry-rescue (1.4.2)
+      interception (>= 0.5)
+      pry
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     puma (2.16.0)
     rack (2.0.0.alpha)
       json
@@ -93,6 +119,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
     redis (3.2.2)
+    slop (3.6.0)
     spring (1.6.3)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -114,7 +141,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
+  better_errors
+  binding_of_caller
   byebug
+  hirb
+  pry-byebug
+  pry-rails
+  pry-rescue
+  pry-stack_explorer
   puma
   rails (>= 5.0.0.beta2, < 5.1)
   redis (~> 3.0)
