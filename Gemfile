@@ -47,6 +47,12 @@ group :development, :test do
 
 	#Hirb provides a mini view framework for console applications
   gem 'hirb'
+
+  # Use RSpec for specs
+  gem 'rspec-rails'
+
+  # Use Factory Girl for generating random test data
+  gem 'factory_girl_rails'
 end
 
 group :development do
