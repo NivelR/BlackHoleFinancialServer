@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_action :verify_jwt_token
   before_action :set_transaction, only: [:show, :update, :destroy]
 
   # GET /transactions
