@@ -21,6 +21,7 @@ gem 'redis', '~> 3.0'
 gem 'rack-cors'
 
 gem "devise", :github => 'plataformatec/devise', :branch => 'master'
+gem 'simple_token_authentication'
 gem 'jwt'
 gem 'responders'
 
