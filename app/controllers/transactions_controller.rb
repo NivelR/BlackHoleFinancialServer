@@ -1,10 +1,9 @@
 class TransactionsController < ApplicationController
-  before_action :verify_jwt_token
   before_action :set_transaction, only: [:show, :update, :destroy]
 
   # GET /transactions
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
 
     render json: @transactions
   end

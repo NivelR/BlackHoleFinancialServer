@@ -1,5 +1,4 @@
 class TagsController < ApplicationController
-  before_action :verify_jwt_token
   before_action :set_tag, only: [:show, :update, :destroy]
 
   # GET /tags

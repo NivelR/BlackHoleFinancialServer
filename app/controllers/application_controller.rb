@@ -1,24 +1,17 @@
-require "application_responder"
+class ApplicationController < ActionController::API
+  # protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
 
-class ApplicationController < ActionController::Base
-  self.responder = ApplicationResponder
-  respond_to :html
+  acts_as_token_authentication_handler_for User
 
-  # We depend on our auth_token module here.
-  require 'auth_token'
+  # Apply strong_parameters filtering before CanCan authorization
+  # See https://github.com/ryanb/cancan/issues/571#issuecomment-10753675
+  before_filter do
+    resource = controller_name.singularize.to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :null_session
-
-  protected
-
-    ##
-    # This method can be used as a before filter to protect
-    # any actions by ensuring the request is transmitting a
-    # valid JWT.
-    def verify_jwt_token
-      head :unauthorized if request.headers['Authorization'].nil? ||
-          !AuthToken.valid?(request.headers['Authorization'].split(' ').last)
-    end
 end

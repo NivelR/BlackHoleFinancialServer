@@ -6,7 +6,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # skip_before_action :verify_authenticity_token
 
   # Be sure to enable JSON.
-  respond_to :html, :json
+  # respond_to :html, :json
+
+  def create
+    @user = User.create(user_params)
+    if @user.save
+      render :json => {:state => {:code => 0}, :data => @user }
+    else
+      render :json => {:state => {:code => 1, :messages => @user.errors.full_messages} }
+    end
+
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 
   # GET /resource/sign_up
   # def new
