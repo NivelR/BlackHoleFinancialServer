@@ -14,4 +14,16 @@ class User < ApplicationRecord
       email: self.email
     }
   end
+
+  def get_expenses_sum
+    self.transactions.where(amount_type: 0).sum(:amount)
+  end
+
+  def get_incomes_sum
+    self.transactions.where(amount_type: 1).sum(:amount)
+  end
+
+  def get_expenses_between(min_date, max_date)
+    self.transactions.where(amount_type: 0).where("created_at BETWEEN :min and :max", min: min_date, max: max_date).sum(:amount)
+  end
 end
