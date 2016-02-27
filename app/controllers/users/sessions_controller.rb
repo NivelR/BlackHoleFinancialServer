@@ -1,10 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
   include ActionController::ImplicitRender
-  # Require our abstraction for encoding/deconding JWT.
-  # require 'auth_token'
-
-  # Disable CSRF protection
-  # skip_before_action :verify_authenticity_token
 
   # Be sure to enable JSON.
   respond_to :html, :json
@@ -18,22 +13,22 @@ class Users::SessionsController < Devise::SessionsController
 
     current_user.update authentication_token: nil
 
-    respond_to do |format|
-      format.json {
+    # respond_to do |format|
+      # format.json {
         render :json => {
           :user => current_user,
           :status => :ok,
           :authentication_token => current_user.authentication_token
         }
-      }
-    end
+      # }
+    # end
   end
 
   # DELETE /resource/sign_out
   def destroy
 
-    respond_to do |format|
-      format.json {
+    # respond_to do |format|
+      # format.json {
         if current_user
           current_user.update authentication_token: nil
           signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
@@ -43,8 +38,17 @@ class Users::SessionsController < Devise::SessionsController
         end
 
 
-      }
-    end
+      # }
+    # end
+  end
+
+  def set_flash_message(key, kind, options = {})
+    message = find_message(kind, options)
+    # if options[:now]
+      # flash.now[key] = message if message.present?
+    # else
+      # flash[key] = message if message.present?
+    # end
   end
 
   # POST /resource/sign_in
