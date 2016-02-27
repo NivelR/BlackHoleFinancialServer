@@ -2,12 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
-  # Disable CSRF protection
-  # skip_before_action :verify_authenticity_token
-
-  # Be sure to enable JSON.
-  # respond_to :html, :json
-
   def create
     @user = User.create(user_params)
     if @user.save
