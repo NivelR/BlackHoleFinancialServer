@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
   # GET /report
   def report
     @reporte = 
-      { result: 
+      { report: 
         {
           expenses: current_user.get_expenses_sum, 
           incomes: current_user.get_incomes_sum
