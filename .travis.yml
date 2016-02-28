@@ -20,8 +20,8 @@ deploy:
 
   run:
     - "rails db:environment:set RAILS_ENV=production"
-    - "rails db:drop:all"
-    - "rails db:create:all"
+ #   - "rails db:drop:all"
+ #   - "rails db:create:all"
     - "rails db:migrate"
  #   - "rails db:schema:load --trace"
     - "rails db:seed"
