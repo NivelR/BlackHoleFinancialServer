@@ -22,7 +22,7 @@ deploy:
     - "rails db:environment:set RAILS_ENV=production"
  #   - "rails db:drop:all"
  #   - "rails db:create:all"
-    - "rails db:migrate"
+    - "rails db:migrate RAILS_ENV=development"
  #   - "rails db:schema:load --trace"
     - "rails db:seed"
 #    - "rake cucumber"
