@@ -19,11 +19,10 @@ deploy:
     all_branches: true #Para que haga deploy ante cualquier rama, sino solo cuando cambia la master.
 
   run:
-    - "rails db:environment:set RAILS_ENV=production"
- #   - "rails db:drop:all"
- #   - "rails db:create:all"
-    - "rails db:migrate RAILS_ENV=development"
+   # - "rails db:environment:set RAILS_ENV=production"
+    - "rails db:migrate RAILS_ENV=production"
  #   - "rails db:schema:load --trace"
-    - "rails db:seed"
+    - "rails db:schema:load --trace RAILS_ENV=production"
+    - "rails db:seed RAILS_ENV=production"
 #    - "rake cucumber"
     - restart
