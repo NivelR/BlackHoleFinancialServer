@@ -19,13 +19,27 @@ tags.each do |tag|
    Tag.create!(tag)
 end
 
-transactions = [{ tag_id: '1', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user.id},
-        { tag_id: '2', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user.id},
-        { tag_id: '3', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user.id},
+transactions = [{ tag_id: '1', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user2.id},
+        { tag_id: '2', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user2.id},
+        { tag_id: '3', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user2.id},
         { tag_id: '5', amount: Faker::Number.between(75, 275), amount_type: 1, user_id: user2.id},
         { tag_id: '5', amount: Faker::Number.between(75, 275), amount_type: 1, user_id: user2.id},
         { tag_id: '3', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user2.id},
         { tag_id: '4', amount: Faker::Number.between(75, 275), amount_type: 0, user_id: user2.id}
+      ]
+
+transactions.each do |transaction|
+   Transaction.create!(transaction)
+end
+
+#Fechas
+transactions = [{ created_at: "22/02/2016", tag_id: '1', amount: 275, amount_type: 0, user_id: 1},
+        { created_at: "23/02/2016", tag_id: '2', amount: 275, amount_type: 0, user_id: 1},
+        { created_at: "24/02/2016", tag_id: '3', amount: 275, amount_type: 0, user_id: 1},
+        { created_at: "25/02/2016", tag_id: '5', amount: 275, amount_type: 0, user_id: 1},
+        { created_at: "26/02/2016", tag_id: '5', amount: 275, amount_type: 0, user_id: 1},
+        { created_at: "27/02/2016", tag_id: '3', amount: 275, amount_type: 0, user_id: 1},
+        { created_at: "28/02/2016", tag_id: '4', amount: 275, amount_type: 0, user_id: 1}
       ]
 
 transactions.each do |transaction|

@@ -42,3 +42,36 @@ curl -i -H "Accept: application/json" -H "Content-type: application/json"  -H "X
 
 3) insegura:
 http://localhost:3000/tags?user_email=user@nivelr.com&user_token=bmu_o_vU7CrqeTZNRLWN
+
+# Rutas.
+Para obtener una versión actual: rake routes
+
+                  Prefix Verb   URI Pattern                 Controller#Action
+        new_user_session GET    /users/sign_in(.:format)    users/sessions#new
+            user_session POST   /users/sign_in(.:format)    users/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)   users/sessions#destroy
+cancel_user_registration GET    /users/cancel(.:format)     users/registrations#cancel
+       user_registration POST   /users(.:format)            users/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)    users/registrations#new
+  edit_user_registration GET    /users/edit(.:format)       users/registrations#edit
+                         PATCH  /users(.:format)            users/registrations#update
+                         PUT    /users(.:format)            users/registrations#update
+                         DELETE /users(.:format)            users/registrations#destroy
+            transactions GET    /transactions(.:format)     transactions#index
+                         POST   /transactions(.:format)     transactions#create
+             transaction GET    /transactions/:id(.:format) transactions#show
+                         PATCH  /transactions/:id(.:format) transactions#update
+                         PUT    /transactions/:id(.:format) transactions#update
+                         DELETE /transactions/:id(.:format) transactions#destroy
+                    tags GET    /tags(.:format)             tags#index
+                         POST   /tags(.:format)             tags#create
+                     tag GET    /tags/:id(.:format)         tags#show
+                         PATCH  /tags/:id(.:format)         tags#update
+                         PUT    /tags/:id(.:format)         tags#update
+                         DELETE /tags/:id(.:format)         tags#destroy
+                  report GET    /users/report(.:format)     reports#report
+        get_expenses_sum GET    /get_expenses_sum(.:format) reports#get_expenses_sum
+         get_incomes_sum GET    /get_incomes_sum(.:format)  reports#get_incomes_sum
+            daily_report GET    /daily_report(.:format)     reports#daily_report
+             week_report GET    /week_report(.:format)      reports#week_report
+            month_report GET    /month_report(.:format)     reports#month_report
