@@ -45,14 +45,15 @@ http://localhost:3000/tags?user_email=user@nivelr.com&user_token=bmu_o_vU7CrqeTZ
 
 # Rutas.
 Para obtener una versión actual: rake routes
-    /tags = todas las etiquetas del sistema.
-    /transactions = todas las transacciones del usuario actual.
-    /get_expenses_sum = total historico de gastos del usuario.
-    /get_incomes_sum = total historico de ingresos del usuario.
-    /users/report = reporte historio de gastos e ingresos.
-    /daily_report = reporte diario de gastos e ingresos
-    /week_report = reporte semanal de gastos e ingresos
-    /month_report = reporte mensual de gastos e ingresos.
+            /tags = todas las etiquetas del sistema.
+            /transactions = todas las transacciones del usuario actual.
+            /get_expenses_sum = total historico de gastos del usuario.
+            /get_incomes_sum = total historico de ingresos del usuario.
+            /users/report = reporte historio de gastos e ingresos.
+            /daily_report = reporte diario de gastos e ingresos
+            /week_report = reporte semanal de gastos e ingresos
+            /month_report = reporte mensual de gastos e ingresos.
+        
 
 
 
