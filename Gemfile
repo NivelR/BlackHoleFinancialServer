@@ -25,6 +25,9 @@ gem 'rack-cors'
 gem "devise", :github => 'plataformatec/devise', :branch => 'master'
 gem 'simple_token_authentication', :github => 'gabrielc63/simple_token_authentication', :branch => 'rails5.0'
 
+#gem for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -62,8 +65,6 @@ group :development, :test do
   # Use Factory Girl for generating random test data
   gem 'factory_girl_rails'
 
-  #gem for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
 end
 
 group :development do
