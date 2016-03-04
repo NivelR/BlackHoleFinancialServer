@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20160223182031) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["tag_id"], name: "index_transactions_on_tag_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
+
+  add_index "transactions", ["tag_id"], name: "index_transactions_on_tag_id"
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -42,9 +43,10 @@ ActiveRecord::Schema.define(version: 20160223182031) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
-    t.index ["authentication_token"], name: "index_users_on_authentication_token"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
