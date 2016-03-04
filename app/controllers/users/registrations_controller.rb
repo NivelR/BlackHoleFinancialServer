@@ -1,15 +1,33 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
+# prepend_before_filter :require_no_authentication, only: [:new, :create, :cancel]
+  skip_before_action :authenticate_scope!
 
   def create
     @user = User.create(user_params)
     if @user.save
-      render :json => {:state => {:code => 0}, :data => @user }
+      render json: {data: @user}, status: 201
     else
-      render :json => {:state => {:code => 1, :messages => @user.errors.full_messages} }
+      render json: {errors: @user.errors}, status: 422
     end
 
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      render json: {data: @user}, status: 200
+    else
+      render json: {errors: @user.errors}, status: 422
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    head 204
   end
 
   private
@@ -30,11 +48,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
   #   super
   # end
 

@@ -25,6 +25,9 @@ gem 'rack-cors'
 gem "devise", :github => 'plataformatec/devise', :branch => 'master'
 gem 'simple_token_authentication', :github => 'gabrielc63/simple_token_authentication', :branch => 'rails5.0'
 
+#gem for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -57,13 +60,11 @@ group :development, :test do
   gem 'hirb'
 
   # Use RSpec for specs
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5.0.beta1'
 
   # Use Factory Girl for generating random test data
   gem 'factory_girl_rails'
 
-  #gem for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
 end
 
 group :development do
@@ -71,6 +72,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.5.1'
+	gem 'shoulda-matchers', '~> 3.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

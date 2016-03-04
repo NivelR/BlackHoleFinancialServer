@@ -3,15 +3,16 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  #  :recoverable, :rememberable, :trackable, :validatable
-  devise :database_authenticatable, :registerable
+  #  :recoverable, :rememberable, :trackable
+  devise :database_authenticatable, :registerable, :validatable
 
   has_many :transactions
 
   def as_json(options={})
     {
       id: self.id,
-      email: self.email
+      email: self.email,
+      token: self.authentication_token
     }
   end
 
