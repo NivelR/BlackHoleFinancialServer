@@ -3,9 +3,10 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+# Add additional requires below this line. Rails is not loaded until this point!
 require 'database_cleaner'
 require 'devise'
-# Add additional requires below this line. Rails is not loaded until this point!
+require_relative './support/request_helpers'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -63,6 +64,7 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
   config.include Warden::Test::Helpers , :type => :controller
+  config.include Request::JsonHelpers, :type => :controller
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
