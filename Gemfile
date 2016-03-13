@@ -22,7 +22,7 @@ gem 'redis', '~> 3.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-gem "devise", :github => 'plataformatec/devise', :branch => 'master'
+gem 'devise', '~> 4.0.0.rc2'
 gem 'simple_token_authentication', :github => 'gabrielc63/simple_token_authentication', :branch => 'rails5.0'
 
 #gem for generating fake data such as names, addresses, and phone numbers.
@@ -60,7 +60,7 @@ group :development, :test do
   gem 'hirb'
 
   # Use RSpec for specs
-  gem 'rspec-rails', '~> 3.5.0.beta1'
+  gem 'rspec-rails', '~> 3.5.0.beta2'
 
   # Use Factory Girl for generating random test data
   gem 'factory_girl_rails'
@@ -85,6 +85,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   #heroku pide esto.
   #ruby '2.3.0'
-  gem 'pg' #base de datos PostgreSQL
-  gem 'rails_12factor' #algo de heroku para archivos estaticos.
+  #base de datos PostgreSQL
+  gem 'pg'
+  #algo de heroku para archivos estaticos.
+  gem 'rails_12factor'
 end
