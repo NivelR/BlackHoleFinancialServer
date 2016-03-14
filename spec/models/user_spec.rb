@@ -9,6 +9,7 @@ RSpec.describe User, :type => :model do
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
     it { should validate_confirmation_of(:password) }
+    it { should respond_to(:authentication_token) }
   end
 
   describe "when email address is already taken" do

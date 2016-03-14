@@ -22,9 +22,9 @@ class Users::SessionsController < Devise::SessionsController
     if current_user
       current_user.update_attribute(:authentication_token, nil)
       signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-      render :json => {}.to_json, :status => :ok
+      head 204
     else
-      render :json => {}.to_json, :status => :unprocessable_entity
+      head 400
     end
   end
 

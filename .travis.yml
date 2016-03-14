@@ -2,12 +2,13 @@ language: ruby
 rvm:
 - ruby-2.3.0
 env:
-  global: 
+  global:
 bundler_args: "--without production"
 script:
 - RAILS_ENV=test
 #- bundle exec rails db:migrate --trace
-- bundle exec rails db:drop:all db:create:all db:migrate
+- bundle exec rails db:drop db:schema:load
+- bundle exec rspec
 #- bundle exec rake cucumber
 deploy:
   provider: heroku
@@ -20,7 +21,7 @@ deploy:
 
   run:
    # - "rails db:environment:set RAILS_ENV=production"
-    - "rails db:migrate RAILS_ENV=production"
+    # - "rails db:migrate RAILS_ENV=production"
  #   - "rails db:schema:load --trace"
     - "rails db:schema:load --trace RAILS_ENV=production"
     - "rails db:seed RAILS_ENV=production"
