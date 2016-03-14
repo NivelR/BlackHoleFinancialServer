@@ -1,6 +1,8 @@
 ## Black Hole
 You can track your incomes and expenses daily, weekly and monthly. In a very simple way with Black Hole! Finances for Freelancers.
 
+[![Build Status](https://travis-ci.org/NivelR/BlackHoleFinancialServer.svg?branch=master)](https://travis-ci.org/NivelR/BlackHoleFinancialServer)
+
 Hey, where gone your money the last week? do you know?
 This README would normally document whatever steps are necessary to get the
 application up and running.
