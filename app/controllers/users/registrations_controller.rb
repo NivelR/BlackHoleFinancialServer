@@ -3,6 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
 # prepend_before_filter :require_no_authentication, only: [:new, :create, :cancel]
   skip_before_action :authenticate_scope!
+  before_action :require_authentication!, only: [:update, :destroy]
 
   def create
     @user = User.create(user_params)
@@ -15,8 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    @user = User.find(params[:id])
-
+    @user = current_user
     if @user.update(user_params)
       render json: {data: @user}, status: 200
     else
@@ -25,8 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    current_user.destroy
     head 204
   end
 

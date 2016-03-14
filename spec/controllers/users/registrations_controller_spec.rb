@@ -42,15 +42,18 @@ RSpec.describe Users::RegistrationsController, type: :controller do
   end
 
   describe "PUT #update" do
+    before(:each) do
+      request.env['devise.mapping'] = Devise.mappings[:user]
+      @user = FactoryGirl.create :user
+      sign_in @user
+    end
 
     context "when is successfully updated" do
       before(:each) do
-        request.env['devise.mapping'] = Devise.mappings[:user]
-        @user = FactoryGirl.create :user
-        # request.headers['Accept'] = 'application/json'
-        # request.headers['Content-Type'] = 'application/json'
-        # request.headers['X-User-Email'] = @user.email
-        # request.headers['X-User-Token'] = @user.authentication_token
+        # @request.env['Accept'] = 'application/json'
+        # @request.env['Content-Type'] = 'application/json'
+        # @request.env['X-User-Email'] = @user.email
+        # @request.env['X-User-Token'] = @user.authentication_token
         patch :update, params: { id: @user.id,
                          user: { email: "newmail@example.com" } }, format: :json
       end
@@ -65,8 +68,6 @@ RSpec.describe Users::RegistrationsController, type: :controller do
 
     context "when is not created" do
       before(:each) do
-        request.env['devise.mapping'] = Devise.mappings[:user]
-        @user = FactoryGirl.create :user
         patch :update, params: { id: @user.id,
                          user: { email: "bademail.com" } }, format: :json
       end
@@ -89,6 +90,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     before(:each) do
       request.env['devise.mapping'] = Devise.mappings[:user]
       @user = FactoryGirl.create :user
+      sign_in @user
       delete :destroy, params: { id: @user.id }, format: :json
     end
 
