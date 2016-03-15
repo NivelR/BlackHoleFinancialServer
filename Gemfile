@@ -90,3 +90,5 @@ group :production do
   #algo de heroku para archivos estaticos.
   gem 'rails_12factor'
 end
+
+ruby "2.3.0"

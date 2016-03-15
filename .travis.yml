@@ -21,9 +21,9 @@ deploy:
 
   run:
    # - "rails db:environment:set RAILS_ENV=production"
-    # - "rails db:migrate RAILS_ENV=production"
+    - "rails db:migrate RAILS_ENV=production"
  #   - "rails db:schema:load --trace"
-    - "rails db:schema:load --trace RAILS_ENV=production"
+    # - "rails db:schema:load --trace RAILS_ENV=production"
     - "rails db:seed RAILS_ENV=production"
 #    - "rake cucumber"
     - restart
