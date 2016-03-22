@@ -6,7 +6,7 @@ class User < ApplicationRecord
   #  :recoverable, :rememberable, :trackable
   devise :database_authenticatable, :registerable, :validatable
 
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
 
   def as_json(options={})
     {
