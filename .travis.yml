@@ -10,20 +10,20 @@ script:
 - bundle exec rails db:drop db:create db:migrate
 - bundle exec rspec
 #- bundle exec rake cucumber
-deploy:
-  provider: heroku
-  api_key:
-    secure: fWLzlHa/YnPbP5SXw84jggmCj2KOz/Y/Qzx14Kr7Gvl8ZtzXWShqVktj56LhdMHjkE0q0KNlhX1ocnr5pVYiTvkzthaM6cilQ2SgRV2V4BHMXMjPqYrGJzmt/A1in+NDOJ5DDJxVDBIcs1n++l+tIRZKv4vEmOvjDhAcngml024Zf5bSrfRc0f46rX3UkE+huIT+xvBiWnd+sOcR+pjMTnrFopeG6+LYzvTMWbpLV6zmUPAgqzaK9CRc8PTwtTVz7H+4DcXSRj//oWW/daQ2n9VHmWODTLOI4gxvg6h+ParnOXgUjYP+Vjl7LMAjAzaW3A4L+DH48BVNWyU+mv56n7Wf7A7E6rliw8q4RGYzLwo2nDQ1WhEDoeaYJxsnXKdU7+NjrgqmiB6LOKfoV8he0fF5Bp4DEILQwc85qFYtPWZEDfLUNL4rXKpDnDJoXLVlgta9UuKOc4ojbd+Hl8IBaBqpid/JazanSy3VxuIytWQpmJULuWydv79zmv/L5hzKzrny14io4ijYbofBbbt2J/5MQWfCT0hwpJFYSo5b1SYB2K4Miw/kjQBf21KviKi+oC1ti99e/zprL4aWAnYQtjXdK5ergomCGLUdvwojE5w/YekX4cmpuitHXS5dfYDPcYT88zX3BoFh1jJYEUWqsWE+nobf3HnBuzR8GmdP040=
-  app: blackhole-srv
-  on:
-    repo: NivelR/BlackHoleFinancialServer
-    all_branches: true #Para que haga deploy ante cualquier rama, sino solo cuando cambia la master.
+# deploy:
+  # provider: heroku
+  # api_key:
+    # secure: fWLzlHa/YnPbP5SXw84jggmCj2KOz/Y/Qzx14Kr7Gvl8ZtzXWShqVktj56LhdMHjkE0q0KNlhX1ocnr5pVYiTvkzthaM6cilQ2SgRV2V4BHMXMjPqYrGJzmt/A1in+NDOJ5DDJxVDBIcs1n++l+tIRZKv4vEmOvjDhAcngml024Zf5bSrfRc0f46rX3UkE+huIT+xvBiWnd+sOcR+pjMTnrFopeG6+LYzvTMWbpLV6zmUPAgqzaK9CRc8PTwtTVz7H+4DcXSRj//oWW/daQ2n9VHmWODTLOI4gxvg6h+ParnOXgUjYP+Vjl7LMAjAzaW3A4L+DH48BVNWyU+mv56n7Wf7A7E6rliw8q4RGYzLwo2nDQ1WhEDoeaYJxsnXKdU7+NjrgqmiB6LOKfoV8he0fF5Bp4DEILQwc85qFYtPWZEDfLUNL4rXKpDnDJoXLVlgta9UuKOc4ojbd+Hl8IBaBqpid/JazanSy3VxuIytWQpmJULuWydv79zmv/L5hzKzrny14io4ijYbofBbbt2J/5MQWfCT0hwpJFYSo5b1SYB2K4Miw/kjQBf21KviKi+oC1ti99e/zprL4aWAnYQtjXdK5ergomCGLUdvwojE5w/YekX4cmpuitHXS5dfYDPcYT88zX3BoFh1jJYEUWqsWE+nobf3HnBuzR8GmdP040=
+  # app: blackhole-srv
+  # on:
+    # repo: NivelR/BlackHoleFinancialServer
+    # all_branches: true #Para que haga deploy ante cualquier rama, sino solo cuando cambia la master.
 
-  run:
+  # run:
    # - "rails db:environment:set RAILS_ENV=production"
-    - "rails db:migrate RAILS_ENV=production"
+    # - "rails db:migrate RAILS_ENV=production"
  #   - "rails db:schema:load --trace"
     # - "rails db:schema:load --trace RAILS_ENV=production"
-    - "rails db:seed RAILS_ENV=production"
+    # - "rails db:seed RAILS_ENV=production"
 #    - "rake cucumber"
-    - restart
+    # - restart
