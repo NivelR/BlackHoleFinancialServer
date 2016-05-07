@@ -4,10 +4,10 @@ class ReportsController < ApplicationController
 
   # GET /report
   def report
-    @reporte = 
-      { report: 
+    @reporte =
+      { report:
         {
-          expenses: current_user.get_expenses_sum, 
+          expenses: current_user.get_expenses_sum,
           incomes: current_user.get_incomes_sum
         }
       }
@@ -29,15 +29,15 @@ class ReportsController < ApplicationController
   end
 
   def week_report
-    week_days = Date.today.cwday #dias pasados desde el inicio de la semana. 
+    week_days = Date.today.cwday #dias pasados desde el inicio de la semana.
     min_date = Date.today - week_days + 1
     max_date = Date.today
     week_expenses = current_user.get_expenses_between(min_date, max_date)
     week_incomes = current_user.get_incomes_between(min_date, max_date)
-    @reporte = 
-      { report: 
+    @reporte =
+      { report:
         {
-          expenses: week_expenses, 
+          expenses: week_expenses,
           incomes: week_incomes
         }
       }
@@ -45,16 +45,16 @@ class ReportsController < ApplicationController
   end
 
   def month_report
-    month_day = Date.today.mday #dias pasados desde el inicio del mes. 
+    month_day = Date.today.mday #dias pasados desde el inicio del mes.
     min_date = Date.today - month_day + 1
     max_date = Date.today
     month_expenses = current_user.get_expenses_between(min_date, max_date)
     month_incomes = current_user.get_incomes_between(min_date, max_date)
 
-    @reporte = 
-      { report: 
+    @reporte =
+      { report:
         {
-          expenses: month_expenses, 
+          expenses: month_expenses,
           incomes: month_incomes
         }
       }
@@ -62,11 +62,11 @@ class ReportsController < ApplicationController
   end
 
   def daily_report
-    #puts "\e[0;34m\e[47m\ get_incomes_sum!: #{daily_expenses} \e[m" 
-    @reporte = 
-      { report: 
+    #puts "\e[0;34m\e[47m\ get_incomes_sum!: #{daily_expenses} \e[m"
+    @reporte =
+      { report:
         {
-          expenses: daily_expenses, 
+          expenses: daily_expenses,
           incomes: daily_incomes
         }
       }
@@ -75,11 +75,11 @@ class ReportsController < ApplicationController
 
 private
   def daily_expenses
-    current_user.get_expenses_between(Date.today, Date.today)
+    current_user.today_expenses(Date.today)
   end
 
   def daily_incomes
-    current_user.get_expenses_between(Date.today, Date.today)
+    current_user.today_incomes(Date.today)
   end
 
 end
