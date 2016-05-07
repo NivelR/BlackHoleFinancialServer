@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.beta4', '< 5.1'
+gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 
 # Use Puma as the app server
 gem 'puma'
@@ -60,7 +60,7 @@ group :development, :test do
   gem 'hirb'
 
   # Use RSpec for specs
-  gem 'rspec-rails', '~> 3.5.0.beta2'
+  gem 'rspec-rails', '~> 3.5.0.beta3'
 
   # Use Factory Girl for generating random test data
   gem 'factory_girl_rails'
